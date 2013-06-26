@@ -1,0 +1,9 @@
+{
+    "name": "server",
+    "version": "0.0.0",
+    "main": "./index.js",
+    "description": "Static file server",
+    "dependencies": {
+        "express": "3.1.x",
+    }
+}
