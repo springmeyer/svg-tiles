@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset='UTF-8'/>
+<script src='http://api.tiles.mapbox.com/mapbox.js/v1.0.0/mapbox.js'></script>
+<script src="http://www.mapbox.com/mapbox.js/assets/leaflet-hash.js"></script>
+<link href='http://api.tiles.mapbox.com/mapbox.js/v1.0.0/mapbox.css' rel='stylesheet' />
+<style>
+    html,
+    body,
+    #map {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+    }
+</style>
+</head>
+
+<body>
+<div id='map'>
+</div>
+<script>
+var map = L.mapbox.map('map').setView([38.9029,-77.0384], 12);
+var hash = new L.Hash(map);
+var svg_layer = L.tileLayer('./tiles/{z}/{x}/{y}.svgz',{maxZoom: 21});
+map.addLayer(svg_layer);
+</script>
+</body>
+
+</html>
