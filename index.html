@@ -27,10 +27,6 @@
 
     var tiles = L.tileLayer('./tiles/{z}/{x}/{y}.svgz', {maxZoom: 21});
 
-    tiles._createTileProto = function() {
-        var svg = this._tileImg = L.DomUtil.create('svg');
-    };
-
     tiles._loadTile = function(tile, tilePoint) {
         tile._layer = this;
         this._adjustTilePoint(tilePoint);
