@@ -12,7 +12,7 @@ var app = express();
 //# simplifyStream
 //* removes all styling attributes
 //* inserts a stylesheet at the top
-//* Changes coordinates to integers and removes consequtive duplicates
+//* Changes coordinates to integers and removes consecutive duplicates
 
 function simplifyStream() {
   var parser = new expat.Parser("UTF-8"),
