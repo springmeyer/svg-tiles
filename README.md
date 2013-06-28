@@ -12,7 +12,7 @@ To view the underlying svg uncompressed you can do (with the server running - se
     mv 1566.svgz 1566.svg.gz
     gzip -d 1566.svg.gz
 
-Then open 1566.svg in your editor.
+Then open `1566.svg` in your editor.
 
 The tiles are styled by Mapnik using Mapnik's Cairo backend.
 

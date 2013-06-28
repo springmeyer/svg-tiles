@@ -24,9 +24,14 @@
 <script>
     var map = L.mapbox.map('map')
         .setView([38.9029, -77.0384], 12);
+    var hash = new L.Hash(map);
 
     var tiles = L.tileLayer('./tiles/{z}/{x}/{y}.svgz', {maxZoom: 21});
 
+    /* enable the loadTile override below to experiment with
+       the svgz pushed into <svg> instead of <img>
+    */
+    /*
     tiles._loadTile = function(tile, tilePoint) {
         tile._layer = this;
         this._adjustTilePoint(tilePoint);
@@ -53,6 +58,7 @@
         }.bind(this);
         r.send();
     };
+    */
 
     tiles.addTo(map);
 </script>
