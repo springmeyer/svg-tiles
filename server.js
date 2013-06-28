@@ -68,12 +68,12 @@ var headers = {
   'Content-Type' : 'image/svg+xml'
 };
 
-app.get('/tiles/:z/:x/:y.:format', function(req, res, next) {
+app.get('/:tile_dir/:z/:x/:y.:format', function(req, res, next) {
     var z = +req.params.z | 0;
     var x = +req.params.x | 0;
     var y = +req.params.y | 0;
     var format = req.params.format;
-    var filename = __dirname +'/tiles/'+z+'/'+x+'/'+y+'.'+format;
+    var filename = __dirname +'/'+req.params.tile_dir + '/'+z+'/'+x+'/'+y+'.'+format;
     fs.exists(filename,function(exists) {
         if (exists) {
             res.set(headers);

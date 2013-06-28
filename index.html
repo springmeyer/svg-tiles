@@ -27,15 +27,24 @@
         .setView([38.9029, -77.0384], 12);
     var hash = new L.Hash(map);
 
+    // pull tiles locally that were produced by Mapnik's Cairo rendering backend
+    var url_base = './tiles-cairo/'; // served via server.js
+
+    // pull tiles locally that were produced by Mapnik's "svg_renderer"
+    //var url_base = './tiles-mapnik/'; // served via server.js
+
+    // pull tiles from s3
+    //var url_base = 'http://springmeyer.s3.amazonaws.com/svg-tiles-cairo/';
+    //var url_base = 'http://springmeyer.s3.amazonaws.com/svg-tiles-mapnik/';
+
     // normal Leaflet tileLayer
-    //var tiles = L.tileLayer('./tiles/{z}/{x}/{y}.svgz', {maxZoom: 21});
+    //var tiles = L.tileLayer(url_base+'{z}/{x}/{y}.svgz', {maxZoom: 21});
 
     // Advanced layer from @nrenner to enable overzooming on parent zoom level as per #2
-    var tiles = L.tileLayer.overzoom('./tiles/{z}/{x}/{y}.svgz',{maxZoom: 21, serverZooms: [12]});
+    var tiles = L.tileLayer.overzoom(url_base+'{z}/{x}/{y}.svgz',{maxZoom: 21, serverZooms: [12]});
 
-    /* enable the loadTile override below to experiment with
-       the svgz pushed into <svg> instead of <img>
-    */
+    // enable the loadTile override below to experiment with
+    // the svgz pushed into <svg> instead of <img>
     /*
     tiles._loadTile = function(tile, tilePoint) {
         tile._layer = this;
