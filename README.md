@@ -6,6 +6,12 @@ This demo shows the loading of a few pre-styled tiles in SVGZ format at z12 into
 Leaflet. This works in Chrome and Safari (at least) because the SVGZ tiles
 can be treated like images and loaded into a `<img>` element.
 
+See the code comments in `index.html` for customizations to the demo like loading
+tiles into `<svg>` elements instead of `<img>` by @jfirebaugh and using overzooming via @nrenner.
+
+See the code comments in `server.js` for enabling code to optimized and re-style the SVG before
+providing to the browser client via @ZJONSSON.
+
 To view the underlying svg uncompressed you can do (with the server running - see below):
 
     wget http://localhost:4000/tiles/12/1171/1566.svgz
