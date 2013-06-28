@@ -1,5 +1,12 @@
 # SVG Tiles in Leaflet
 
+# Quickstart
+
+    git clone git@github.com:springmeyer/svg-tiles.git
+    cd svg-tiles
+    npm install
+    ./server.js & open http://localhost:4000
+
 # Details
 
 This demo shows the loading of a few pre-styled tiles in SVGZ format at z12 into
@@ -32,7 +39,7 @@ After installing Node.js inside this directory run:
 
     npm install
 
-Which will install `express`.
+Which will install `express` and `expat`.
 
 # Using
 
