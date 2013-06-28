@@ -32,6 +32,8 @@ app.get('/tiles/:z/:x/:y.:format', function(req, res, next) {
     });
 });
 
+app.use(express.static(__dirname +'/'));
+
 app.listen(port);
 
 console.log("listening on localhost:"+port)

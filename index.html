@@ -6,6 +6,7 @@
 <script src='http://api.tiles.mapbox.com/mapbox.js/v1.0.4/mapbox.js'></script>
 <script src="http://www.mapbox.com/mapbox.js/assets/leaflet-hash.js"></script>
 <link href='http://api.tiles.mapbox.com/mapbox.js/v1.0.4/mapbox.css' rel='stylesheet' />
+<script src="TileLayer.Overzoom.js"></script>
 <style>
     html,
     body,
@@ -26,7 +27,11 @@
         .setView([38.9029, -77.0384], 12);
     var hash = new L.Hash(map);
 
-    var tiles = L.tileLayer('./tiles/{z}/{x}/{y}.svgz', {maxZoom: 21});
+    // normal Leaflet tileLayer
+    //var tiles = L.tileLayer('./tiles/{z}/{x}/{y}.svgz', {maxZoom: 21});
+
+    // Advanced layer from @nrenner to enable overzooming on parent zoom level as per #2
+    var tiles = L.tileLayer.overzoom('./tiles/{z}/{x}/{y}.svgz',{maxZoom: 21, serverZooms: [12]});
 
     /* enable the loadTile override below to experiment with
        the svgz pushed into <svg> instead of <img>
